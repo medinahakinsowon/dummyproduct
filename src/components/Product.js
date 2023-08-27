@@ -3,7 +3,7 @@ import SearchIcon from '../search.svg';
 
 
 const producturl = 'https://dummyjson.com/products';
-const searchpro = 'https://dummyjson.com/products/search?';
+const searchpro = 'https://dummyjson.com/products/search?q=phone';
 
 const Product = () => {
   const [product, setProduct] = useState([])
@@ -17,12 +17,12 @@ const Product = () => {
     setProduct(productArray)
     console.log(productArray)
   }
-  const fetchProduct = async (productname) => {
-    const response = await fetch(`${searchpro}${productname}`)
+  const fetchProduct = async (id) => {
+    const response = await fetch(`${searchpro}${id}`)
     const anoData = await response.json()
-    const display = anoData.products
-    setInfo(display)
-    console.log(display)
+    const productDis = anoData.products
+    setInfo(productDis)
+    console.log(productDis)
   }
 
   useEffect(() => {
