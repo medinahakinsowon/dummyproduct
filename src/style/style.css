@@ -1,0 +1,62 @@
+.backgroundlayout{
+  background-color: black;
+  
+}
+
+
+
+.container{
+  width: 1170px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 30px;
+  row-gap: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.card{
+  width: 20rem;
+  height: 32rem;
+  margin-top: 80px;
+  margin-bottom: 50px;
+}
+
+.card-img-top{
+  width: 19rem;
+  height: 17rem;
+  align-self: center;
+} 
+
+h5 span{
+  font-size: 15px;
+  font-weight: bold;
+}
+
+p span{
+  font-size: 15px;
+  font-weight: bold;
+}
+
+
+.card-body{
+  position: relative;
+  float: left;
+}
+
+.display_box{
+  background-color: antiquewhite;
+}
+.search{
+  position: absolute;
+  right: 500px;
+}
+.input_category{
+  width: 600px;
+  height: 8vh;
+  border: 2px solid bisque;
+  border-radius: 18px;
+  box-shadow: 50px 50px 50px rgba(0, 0, 0, 0.05);
+}
+
