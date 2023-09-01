@@ -4,6 +4,8 @@ import Product from './components/Product';
 import Navbar from './components/Navbar';
 import Searchproduct from './components/Searchproduct';
 import Store from './components/Store';
+import Users from './components/Users';
+import Comments from './components/Comments';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
       {
         path: "/Searchproduct",
         element: <Store/>
+      },
+      {
+        path: "/users",
+        element: <Users/>
+      },
+      {
+        path: "/Comments",
+        element: <Comments/>
       },
       {
         path: "#",

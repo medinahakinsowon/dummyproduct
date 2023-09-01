@@ -3,8 +3,23 @@
   
 }
 
-
-
+.container{
+  width: 1170px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 20px;
+  row-gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.card-comments{
+  width: 20rem;
+  height: 9rem;
+  margin-top: 80px;
+  margin-bottom: 50px;
+  background-color: #ffffff;
+}
 .container-fluid{
   width: 1170px;
   margin: 0 auto;
@@ -18,7 +33,7 @@
 
 .card{
   width: 20rem;
-  height: 32rem;
+  height: 30rem;
   margin-top: 80px;
   margin-bottom: 50px;
 }
