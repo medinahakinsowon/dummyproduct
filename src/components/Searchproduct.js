@@ -49,7 +49,7 @@ export default Searchproduct;
 
 const DisplayProduct = ({ data }) => {
   return (
-    <div className="container">
+    <div className="container-fluid">
       {data.map((item, index) => {
         return (
           <div key={index} className="row">

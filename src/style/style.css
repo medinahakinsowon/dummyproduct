@@ -5,7 +5,7 @@
 
 
 
-.container{
+.container-fluid{
   width: 1170px;
   margin: 0 auto;
   display: grid;
@@ -14,7 +14,7 @@
   row-gap: 40px;
   justify-content: center;
   align-items: center;
-}
+} 
 
 .card{
   width: 20rem;
@@ -41,7 +41,13 @@ p span{
   color: #EF0023;
 }
 
-
+input{
+  border: none;
+  text-align: center;
+}
+input:focus{
+  outline: none;
+}
 .card-body{
   position: relative;
   float: left;
@@ -65,7 +71,7 @@ p span{
 }
 
 @media (max-width: 800px) {
-  .container {
+  .container-fluid {
     grid-template-columns: 1fr;
     row-gap: 0;
     padding-bottom: 8px;

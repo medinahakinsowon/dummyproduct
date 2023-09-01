@@ -46,7 +46,7 @@ const Product = () => {
           alt='search'
         />
       </div>
-      <DisplaysearchProduct list={info}/>
+      <DisplaysearchProduct list={info} />
       <DisplayAllProduct data={product}></DisplayAllProduct>
     </div>
   )
@@ -59,22 +59,38 @@ export default Product;
 
 const DisplayAllProduct = ({ data }) => {
   return (
-    <div className="container">
+    // <div className="container">
+    //   {data.map((item, index) => {
+    //     return (
+    //       <div key={index} className="row">
+    //         <div className="col-md-3">
+    //           <div className="card card-product-grid">
+    //             <img src={item.images[3]} className="card-img-top" alt={item.title} />
+    //             <div className="card-body">
+    //               <h5 className="card-title"><span>Product</span>{item.title}</h5>
+    //               <h5 className="card-title"><span>Brand</span>{item.brand}</h5>
+    //               <h5 className="card-title"><span>Category</span>{item.category}</h5>
+    //               <p className="card-text"><span>Description</span>{item.description}</p>
+    //             </div>
+    //           </div>
+    //         </div>
+    //       </div>
+    <div class="container-fluid pt-4">
       {data.map((item, index) => {
         return (
-          <div key={index} className="row">
-            <div className="col-md-3">
-              <div className="card card-product-grid">
-                <img src={item.images[3]} className="card-img-top" alt={item.title} />
-                <div className="card-body">
-                  <h5 className="card-title"><span>Product</span>{item.title}</h5>
-                  <h5 className="card-title"><span>Brand</span>{item.brand}</h5>
-                  <h5 className="card-title"><span>Category</span>{item.category}</h5>
-                  <p className="card-text"><span>Description</span>{item.description}</p>
-                </div>
+          <div key={index} class="row pt-5">
+          <div class="col-sm-12 col-md-4 col-lg-3 pb-4">
+            <div class="card">
+              <img src={item.images[3]} className="card-img-top" alt={item.title} />
+              <div class="card-body">
+                <h5 className="card-title"><span>Product</span>{item.title}</h5>
+                <h5 className="card-title"><span>Brand</span>{item.brand}</h5>
+                <h5 className="card-title"><span>Category</span>{item.category}</h5>
+                <p className="card-text"><span>Description</span>{item.description}</p>
               </div>
             </div>
           </div>
+        </div>
         )
       })}
     </div >
