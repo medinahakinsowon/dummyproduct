@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import SearchIcon from '../search.svg';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import { Link, Outlet } from "react-router-dom";
 
 
 const producturl = 'https://dummyjson.com/products';
@@ -17,12 +20,12 @@ const Product = () => {
     setProduct(productArray)
     console.log(productArray)
   }
-  const fetchProduct = async (id) => {
+  const fetchProductOne = async (id) => {
     const response = await fetch(`${searchpro}${id}`)
     const anoData = await response.json()
     const productDis = anoData.products
-    setInfo(productDis)
     console.log(productDis)
+    setInfo(productDis)
   }
 
   useEffect(() => {
@@ -30,7 +33,7 @@ const Product = () => {
   }, [])
 
   const searchButton = () => {
-    fetchProduct(searchProduct)
+    fetchProductOne(searchProduct)
   }
   return (
     <div className="backgroundlayout">
@@ -46,6 +49,7 @@ const Product = () => {
           alt='search'
         />
       </div>
+      
       <DisplaysearchProduct list={info} />
       <DisplayAllProduct data={product}></DisplayAllProduct>
     </div>
@@ -59,38 +63,32 @@ export default Product;
 
 const DisplayAllProduct = ({ data }) => {
   return (
-    // <div className="container">
-    //   {data.map((item, index) => {
-    //     return (
-    //       <div key={index} className="row">
-    //         <div className="col-md-3">
-    //           <div className="card card-product-grid">
-    //             <img src={item.images[3]} className="card-img-top" alt={item.title} />
-    //             <div className="card-body">
-    //               <h5 className="card-title"><span>Product</span>{item.title}</h5>
-    //               <h5 className="card-title"><span>Brand</span>{item.brand}</h5>
-    //               <h5 className="card-title"><span>Category</span>{item.category}</h5>
-    //               <p className="card-text"><span>Description</span>{item.description}</p>
-    //             </div>
-    //           </div>
-    //         </div>
-    //       </div>
-    <div class="container-fluid pt-4">
+    <div className="container-fluid pt-4">
       {data.map((item, index) => {
         return (
-          <div key={index} class="row pt-5">
-          <div class="col-sm-12 col-md-4 col-lg-3 pb-4">
-            <div class="card">
-              <img src={item.images[3]} className="card-img-top" alt={item.title} />
-              <div class="card-body">
-                <h5 className="card-title"><span>Product</span>{item.title}</h5>
-                <h5 className="card-title"><span>Brand</span>{item.brand}</h5>
-                <h5 className="card-title"><span>Category</span>{item.category}</h5>
-                <p className="card-text"><span>Description</span>{item.description}</p>
+          <div key={index} className="row pt-5">
+            <div className="col-sm-12 col-md-4 col-lg-3 pb-4">
+              <div className="card">
+                {/* <img src={item.images[3]} className="card-img-top" alt={item.title} /> */}
+                <LazyLoadImage
+                  alt={`Image not loading.....`}
+                  height={280}
+                  src={item.images[0]} // use normal <img> attributes as props
+                  effects="blur"
+                  placeholderSrc="black-and-white"
+                  opacity={1.2}
+                  width={300} 
+                  />
+                <div className="card-body">
+                  <h5 className="card-title"><span>Product</span>{item.title}</h5>
+                  <h5 className="card-title"><span>Brand</span>{item.brand}</h5>
+                  <h5 className="card-title"><span>Category</span>{item.category}</h5>
+                  <p className="card-text"><span>Description</span>{item.description}</p>
+                  <Link className="btn btn-danger" to={`products/${item.id}`}>More</Link>
+                </div>  
               </div>
             </div>
           </div>
-        </div>
         )
       })}
     </div >
@@ -102,7 +100,7 @@ const DisplayAllProduct = ({ data }) => {
 const DisplaysearchProduct = ({ list }) => {
   return (
     <div className="container">
-      {list?.map((item, index) => {
+      {list.map((item, index) => {
         return (
           <div key={index} className="row">
             <div className="col-md-3">

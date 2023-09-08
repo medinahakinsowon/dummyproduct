@@ -19,6 +19,10 @@ const Navbar = () => {
 
         <Link className="nav-link" style={{fontFamily: 'Arial', fontSize: '24px', fontWeight: 'bold', color: 'black'}} to="/Comments">Comments</Link>
 
+        <Link className="nav-link" style={{fontFamily: 'Arial', fontSize: '24px', fontWeight: 'bold', color: 'black'}} to="/Todos">Todos</Link>
+
+        <Link className="nav-link" style={{fontFamily: 'Arial', fontSize: '24px', fontWeight: 'bold', color: 'black'}} to="/GetAllCategory">Category</Link>
+
       </nav>
       <Outlet />
     </div>

@@ -1,0 +1,13 @@
+.card_for_single_product{
+  width: 1170px;
+  height: 80vh;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.3fr 1.2fr;
+  justify-content: center;
+  align-items: center;
+  background-color: #ddd;
+  box-shadow: 50px 50px 50px rgba(0, 0, 0, 0.2);
+  border-radius: 21px;
+}
+

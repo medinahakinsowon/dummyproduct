@@ -7,6 +7,7 @@ function Comments() {
     const [data, setData] = useState([]);
     const [loader, setLoader] = useState(false)
     const [error, setError] = useState("")
+
     const fetchproducts = async () => {
         try {
             setError("")
@@ -28,9 +29,18 @@ function Comments() {
     useEffect(() => {
         fetchproducts()
     }, []);
+
+    // const TimeSet = ()=>{
+    //   return( 
+    //     setTimeout(()=>{
+    //       loader && <h2>Loadding, please wait.........</h2>
+    //     }, 2000)
+    //   )
+    // }
  return(
   <div>
-    <DisplayAllComment list={data}/>
+    {loader && <h2>Loadding, please wait.........</h2>}
+    {!loader && !error && <DisplayAllComment list={data}/>}
   </div>
  )
 }
